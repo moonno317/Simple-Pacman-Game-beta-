@@ -17,13 +17,15 @@ int main() {
         "#                 #",
         "#                 #",
         "#                 #",
-        "###################" };
+        "###################"
+    };
 
     int pacmanX = 1;
     int pacmanY = 1;
     int ghostX = 10;
     int ghostY = 5;
     int ch;
+    int gameOver = 0;
 
     srand(time(NULL));
 
@@ -38,7 +40,6 @@ int main() {
             printw("%s\n", board[y]); }
 
         ch = getch();
-
         switch (ch) {
             case KEY_UP:
                 if (board[pacmanY - 1][pacmanX] != '#') {
@@ -63,6 +64,10 @@ int main() {
                     board[pacmanY][pacmanX] = ' ';
                     pacmanX++; }
                 break; }
+
+        if (pacmanX == ghostX && pacmanY == ghostY) {
+            gameOver = 1;
+            break; }
 
         int direction = rand() % 4;
         switch (direction) {
@@ -91,10 +96,11 @@ int main() {
                 break; }
 
         board[pacmanY][pacmanX] = 'C';
-        board[ghostY][ghostX] = 'A'; }
+        board[ghostY][ghostX] = 'A'; } while (ch != 'q' && !gameOver);
 
-	while (ch != 'q');
+    endwin();
 
-    	endwin();
+    if (gameOver) {
+        printf("Game Over! :( \n"); }
 
-    	return 0; }
+    return 0; }
