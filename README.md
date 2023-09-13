@@ -6,3 +6,5 @@ To complie the file type
 
 update 1.0.0.0.0.1
 +Add ghost
+update 1.0.0.0.0.2
++Pacman die when touch the ghost
