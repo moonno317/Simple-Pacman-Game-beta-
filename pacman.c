@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <ncurses.h>awdawdawd
+#include <ncurses.h>
 #include <stdlib.h>
 #include <time.h>
 
